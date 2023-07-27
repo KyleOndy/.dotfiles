@@ -24,7 +24,8 @@ download_args=(
 )
 
 archive_args=(
-    --playlist-end 200 \
+    # TODO: bump this up higer
+    --playlist-end 2 \
 )
 
 download() {
@@ -40,7 +41,6 @@ archive() {
 
 
 download_all() {
-  download "/@chadweberg1/videos"
 
 
   ## cycling
@@ -53,6 +53,14 @@ download_all() {
   download "c/DannyMacAskill/videos"                  # Danny MacAskill
   download "c/cosmocatalano-howtheracewaswon/videos"  # How the race was won
   download "c/JoyOfBike/videos"                       # joy of bikes
+  download "/@chadweberg1/videos"                     # Chad Weberg
+  download "@DirtyTeethMTB/videos"                    # "Dirty Teeth MTB"
+  download "@jasperverkuijl/videos"                   # "Jasper Verkuijl"
+  download "@nerocoaching/videos"                     # "Jesse Coyle"
+  download "@joe.nation/videos"                       # "Joe Nation"
+  download "@joshibbett/videos"                       # "josh ibbett"
+  download "@sofianeshl/videos"                       # "Sofiane Sehili"
+  download "@TENTISTHENEWRENT/videos"                 # "TENT IS THE NEW RENT"
 
   ## science
   archive "c/3blue1brown/videos"            # 3Blue1Brown
@@ -71,6 +79,7 @@ download_all() {
   archive "c/PracticalEngineeringChannel/videos"
   download "c/SampsonBoatCo/videos"                   # Sampson Boat Co
   download "c/ShubaMusic/videos"
+  download "@GxAce/videos"              # "GxAce"
 
   # tech
   download "c/AdamJames-tv/videos"            # Adam James (Clojure)
@@ -78,8 +87,6 @@ download_all() {
   download "c/Tsoding/videos"                         # Tsoding
   download "c/tutoriaLinux/videos"                    # tutoriaLinux
   archive  "c/KRAZAM/videos"                          # KRAZAM
-
-
 }
 
 download_all
