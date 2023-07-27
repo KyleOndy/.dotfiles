@@ -63,7 +63,8 @@ download_all() {
   download "@TENTISTHENEWRENT/videos"                 # "TENT IS THE NEW RENT"
 
   ## science
-  archive "c/3blue1brown/videos"            # 3Blue1Brown
+  #archive "c/3blue1brown/videos"            # 3Blue1Brown
+  download "c/3blue1brown/videos"            # 3Blue1Brown
   download "c/halfasinteresting/videos"     # Half As Interesting
   download "c/Wendoverproductions/videos"   # Wendover Productions
 
