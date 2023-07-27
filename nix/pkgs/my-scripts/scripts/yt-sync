@@ -40,6 +40,9 @@ archive() {
 
 
 download_all() {
+  download "/@chadweberg1/videos"
+
+
   ## cycling
   download "c/DylanJohnsonCycling/videos"             # Dylan Johnson
   download "c/PhilGaimonshow/videos"                  # Phil Gaimon
@@ -76,7 +79,6 @@ download_all() {
   download "c/tutoriaLinux/videos"                    # tutoriaLinux
   archive  "c/KRAZAM/videos"                          # KRAZAM
 
-  download "/@chadweberg1/videos"
 
 }
 
