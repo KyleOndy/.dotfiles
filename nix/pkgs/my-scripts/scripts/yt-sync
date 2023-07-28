@@ -20,12 +20,12 @@ common_args=(
 )
 
 download_args=(
-    --playlist-end 20 \
+    --playlist-end 25 \
 )
 
 archive_args=(
     # TODO: bump this up higer
-    --playlist-end 40 \
+    --playlist-end 75 \
 )
 
 download() {
