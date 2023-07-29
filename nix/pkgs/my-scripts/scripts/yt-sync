@@ -2,7 +2,7 @@
 # shellcheck shell=bash
 #! nix-shell -i bash -p rsync python3 ffmpeg yt-dlp
 # vi: ft=bash
-set -e
+#set -e # script will bail when a channel has a premeier
 
 common_args=(
     # todo: XDG data
