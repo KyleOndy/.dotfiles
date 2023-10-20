@@ -45,11 +45,12 @@ in
           {
             plugin = conjure;
             config = ''
-              let g:conjure#mapping#doc_word = "K"
+              " TODO: using default config as I get back into clojure
+              " let g:conjure#mapping#doc_word = "K"
 
-              " todo: why these?
-              let g:conjure#client#clojure#nrepl#eval#auto_require = 0
-              let g:conjure#client#clojure#nrepl#connection#auto_repl#enabled = 0
+              " " todo: why these?
+              " let g:conjure#client#clojure#nrepl#eval#auto_require = 0
+              " let g:conjure#client#clojure#nrepl#connection#auto_repl#enabled = 0
             '';
           }
 
@@ -70,13 +71,13 @@ in
             plugin = vim-sexp;
             config = ''
               " set no deafult bindings
-              let g:sexp_filetypes = ""
+              "let g:sexp_filetypes = ""
             '';
           }
 
           # https://github.com/tpope/vim-sexp-mappings-for-regular-people
           # tpope to the rescue again
-          #{ plugin = vim-sexp-mappings-for-regular-people; }
+          { plugin = vim-sexp-mappings-for-regular-people; }
         ];
       };
     };
