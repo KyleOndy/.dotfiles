@@ -67,13 +67,13 @@ in
 
           # https://github.com/guns/vim-sexp
           # Precision Editing for S-expressions
-          #{
-          #  plugin = vim-sexp;
-          #  config = ''
-          #    " set no deafult bindings
-          #    "let g:sexp_filetypes = ""
-          #  '';
-          #}
+          {
+            plugin = vim-sexp;
+            config = ''
+              " set no deafult bindings
+              "let g:sexp_filetypes = ""
+            '';
+          }
 
           ## https://github.com/tpope/vim-sexp-mappings-for-regular-people
           ## tpope to the rescue again
