@@ -70,14 +70,14 @@ in
           {
             plugin = vim-sexp;
             config = ''
-              " set no deafult bindings
+              " TODO: add fennel
               " let g:sexp_filetypes = ""
             '';
           }
 
           ## https://github.com/tpope/vim-sexp-mappings-for-regular-people
           ## tpope to the rescue again
-          #{ plugin = vim-sexp-mappings-for-regular-people; }
+          { plugin = vim-sexp-mappings-for-regular-people; }
         ];
       };
     };
