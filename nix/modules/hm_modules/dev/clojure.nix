@@ -71,7 +71,7 @@ in
             plugin = vim-sexp;
             config = ''
               " set no deafult bindings
-              let g:sexp_filetypes = ""
+              " let g:sexp_filetypes = ""
             '';
           }
 
