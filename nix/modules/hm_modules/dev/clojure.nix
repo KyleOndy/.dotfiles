@@ -77,7 +77,12 @@ in
 
           ## https://github.com/tpope/vim-sexp-mappings-for-regular-people
           ## tpope to the rescue again
-          { plugin = vim-sexp-mappings-for-regular-people; }
+          {
+            plugin = vim-sexp-mappings-for-regular-people;
+            config = ''
+              let g:sexp_no_word_maps = 1
+            '';
+          }
         ];
       };
     };
