@@ -29,6 +29,9 @@ in
 
       # https://github.com/babashka/neil#nix
       neil # A CLI to add common aliases and features to deps.edn-based projects.
+
+      # https://github.com/kkinnear/zprint/blob/main/doc/using/files.md
+      zprint # format Clojure source code and s-expressions.
     ];
 
     programs = {
