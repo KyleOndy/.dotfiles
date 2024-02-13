@@ -25,8 +25,7 @@
         #defaultSession = "plasmawayland";
       };
       desktopManager = {
-        gnome
-          gnome.enable = true;
+        gnome.enable = true;
       };
     };
     gtk = {
