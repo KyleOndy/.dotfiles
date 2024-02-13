@@ -70,6 +70,9 @@
     "org/gnome/desktop/peripherals/touchpad" = {
       natural-scroll = false;
     };
+    "org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-ac-type = "nothing";
+    };
   };
 
   home.packages = with pkgs; [
