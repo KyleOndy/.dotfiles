@@ -60,4 +60,5 @@
     };
 
     home.sessionVariables.GTK_THEME = "palenight";
-  }
+  };
+}
