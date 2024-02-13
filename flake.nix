@@ -142,13 +142,15 @@
                 deployment_target.enable = true;
               };
               # TODO: overwriting for testing pourposes
+              # TODO: find a better way to do this
               services = {
                 xserver = {
                   displayManager = {
-                    sddm.enable = true;
-                    defaultSession = "plasmawayland";
+                    gdm.enable = true;
+                    gnome.enable = true;
+                    #defaultSession = "plasmawayland";
                   };
-                  desktopManager.plasma5.enable = true;
+                  #desktopManager.plasma5.enable = true;
                 };
                 power-profiles-daemon.enable = false; # am using tlp
                 mullvad-vpn.enable = true;
