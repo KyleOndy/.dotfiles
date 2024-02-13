@@ -147,10 +147,11 @@
                 xserver = {
                   displayManager = {
                     gdm.enable = true;
-                    gnome.enable = true;
                     #defaultSession = "plasmawayland";
                   };
-                  #desktopManager.plasma5.enable = true;
+                  desktopManager = {
+                    gnome.enable = true;
+                  };
                 };
                 power-profiles-daemon.enable = false; # am using tlp
                 mullvad-vpn.enable = true;
