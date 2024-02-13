@@ -64,10 +64,10 @@
     "org/gnome/desktop/wm/preferences" = {
       workspace-names = [ "Main" ];
     };
-    "/org/gnome/desktop/peripherals/mouse" = {
+    "org/gnome/desktop/peripherals/mouse" = {
       natural-scroll = true;
     };
-    "/org/gnome/desktop/peripherals/touchpad" = {
+    "org/gnome/desktop/peripherals/touchpad" = {
       natural-scroll = false;
     };
   };
