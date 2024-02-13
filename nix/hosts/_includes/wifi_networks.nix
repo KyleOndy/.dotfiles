@@ -7,7 +7,7 @@
 {
   # Enables wireless support via wpa_supplicant.
   networking.wireless = {
-    enable = true;
+    enable = false;
     networks = {
       "The Ondy's" = {
         pskRaw =
