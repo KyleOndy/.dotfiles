@@ -24,6 +24,7 @@
   ]);
   programs.dconf.enable = true;
   environment.systemPackages = with pkgs; [
+    gnome-network-displays
     gnome.gnome-tweaks
   ];
 }
