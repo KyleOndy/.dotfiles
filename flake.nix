@@ -134,6 +134,8 @@
             ./nix/hosts/_includes/laptop.nix
             ./nix/hosts/_includes/wifi_networks.nix
 
+            ./nix/gnome.nix
+
             inputs.sops-nix.nixosModules.sops
             inputs.home-manager.nixosModules.home-manager
             {
@@ -143,16 +145,8 @@
               };
               # TODO: overwriting for testing pourposes
               # TODO: find a better way to do this
+
               services = {
-                xserver = {
-                  displayManager = {
-                    gdm.enable = true;
-                    #defaultSession = "plasmawayland";
-                  };
-                  desktopManager = {
-                    gnome.enable = true;
-                  };
-                };
                 power-profiles-daemon.enable = false; # am using tlp
                 mullvad-vpn.enable = true;
               };
