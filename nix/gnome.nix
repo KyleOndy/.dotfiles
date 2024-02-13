@@ -6,17 +6,17 @@
     systemPackages = with pkgs; [
       gnome.gnome-tweaks
     ];
-    gnome.excludePackages = with gnome; [
-      gedit
-      # gnome-terminal
-      gnome-software
-      gnome-music
-      # gnome-photos
-      simple-scan
-      totem
-      epiphany
-      geary
-    ];
+    #gnome.excludePackages = with gnome; [
+    #  gedit
+    #  # gnome-terminal
+    #  gnome-software
+    #  gnome-music
+    #  # gnome-photos
+    #  simple-scan
+    #  totem
+    #  epiphany
+    #  geary
+    #];
   };
   services = {
     xserver = {
