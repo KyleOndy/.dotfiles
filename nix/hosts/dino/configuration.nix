@@ -12,7 +12,6 @@
   services.fwupd.enable = true;
 
   networking.hostName = "dino"; # Define your hostname.
-  networking.wireless.enable = true;
   system.stateVersion = "22.05";
 }
 
