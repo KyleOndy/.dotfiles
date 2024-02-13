@@ -146,6 +146,7 @@
               # TODO: overwriting for testing pourposes
               # TODO: find a better way to do this
 
+
               services = {
                 power-profiles-daemon.enable = false; # am using tlp
                 mullvad-vpn.enable = true;
@@ -157,7 +158,10 @@
                 useUserPackages = true;
                 sharedModules = hmModules;
                 users.kyle = {
-                  imports = [ ./nix/profiles/full.nix ];
+                  imports = [
+                    ./nix/profiles/full.nix
+                    ./nix/gnome-user.nix
+                  ];
 
                   hmFoundry = {
                     desktop = {
