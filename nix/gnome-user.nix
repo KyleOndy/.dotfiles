@@ -73,6 +73,16 @@
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
     };
+    "/org/gnome/settings-daemon/plugins/color" = {
+      night-light-enabled = true;
+    };
+    "/org/gnome/settings-daemon/plugins/color" = {
+      night-light-schedule-automatic = true;
+    };
+    "/org/gnome/settings-daemon/plugins/color" = {
+      # NON RED 4700 - 1700 RED
+      night-light-temperature = 1700;
+    };
   };
 
   home.packages = with pkgs; [
