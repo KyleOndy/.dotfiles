@@ -47,7 +47,7 @@ in
           yt-dlp
         ];
         script = ''
-          mkdir -p "${temp_dir}"
+          mkdir -p "${cfg.temp_dir}"
 
           main() {
             # TODO: Break out the cleanup process to own service
@@ -66,10 +66,10 @@ in
             done
 
             # move into jellyfin dir
-            if [[ -z $(ls -A "${temp_dir}"/* 2>/dev/null) ]]; then
+            if [[ -z $(ls -A "${cfg.temp_dir}"/* 2>/dev/null) ]]; then
               echo "No downloads"
             else
-              rsync -ahv --remove-source-files "${temp_dir}"/* "${cfg.media_dir}"
+              rsync -ahv --remove-source-files "${cfg.temp_dir}"/* "${cfg.media_dir}"
             fi
 
             # remove leftovers from incomplete downloads
@@ -82,7 +82,7 @@ in
             fd --type=f 'f[0-9]+\.webm' "${cfg.media_dir}" -x rm
 
             # remove empty dirs
-            fd --type=empty --type=directory . "${cfg.media_dir}" "${temp_dir}" -x rmdir
+            fd --type=empty --type=directory . "${cfg.media_dir}" "${cfg.temp_dir}" -x rmdir
 
             # TODO: start sync of jellyfin media library
             # curl -v -X GET -H "X-MediaBrowser-Token: TOKEN" https://jellyfin.tld/library/refresh
@@ -107,7 +107,7 @@ in
               --compat-options no-live-chat \
               --match-filter "!is_live" \
               --playlist-end 25 \
-              --output "${temp_dir}/%(uploader)s/%(upload_date)s - %(uploader)s - %(title)s [%(id)s].%(ext)s"
+              --output "${cfg.temp_dir}/%(uploader)s/%(upload_date)s - %(uploader)s - %(title)s [%(id)s].%(ext)s"
           }
 
           main
