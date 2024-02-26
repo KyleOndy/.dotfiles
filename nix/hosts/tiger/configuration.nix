@@ -294,6 +294,7 @@ in
       youtubeDownloader = {
         enable = true;
         media_dir = "/mnt/media/yt";
+        temp_dir = "/mnt/scratch-big/youtube-downloads";
         watched_channels = [
           # cycling
           "@DylanJohnsonCycling"

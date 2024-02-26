@@ -17,6 +17,11 @@ in
       description = "Directory to store data";
       default = "/var/lib/youtube-downloader";
     };
+    temp_dir = mkOption {
+      type = types.path;
+      description = "Directory to temparary files";
+      default = "${cfg.data_dir}/temp";
+    };
     delete_grace_period = mkOption {
       type = types.str;
       description = "Timespan to keep videos on jellyfin before deleting";
@@ -42,8 +47,7 @@ in
           yt-dlp
         ];
         script = ''
-          temp_dir="${cfg.data_dir}/temp/downloads"
-          mkdir -p "$temp_dir"
+          mkdir -p "${temp_dir}"
 
           main() {
             # TODO: Break out the cleanup process to own service
@@ -62,10 +66,10 @@ in
             done
 
             # move into jellyfin dir
-            if [[ -z $(ls -A "$temp_dir"/* 2>/dev/null) ]]; then
+            if [[ -z $(ls -A "${temp_dir}"/* 2>/dev/null) ]]; then
               echo "No downloads"
             else
-              rsync -ahv --remove-source-files "$temp_dir"/* "${cfg.media_dir}"
+              rsync -ahv --remove-source-files "${temp_dir}"/* "${cfg.media_dir}"
             fi
 
             # remove leftovers from incomplete downloads
@@ -78,7 +82,7 @@ in
             fd --type=f 'f[0-9]+\.webm' "${cfg.media_dir}" -x rm
 
             # remove empty dirs
-            fd --type=empty --type=directory . "${cfg.media_dir}" "$temp_dir" -x rmdir
+            fd --type=empty --type=directory . "${cfg.media_dir}" "${temp_dir}" -x rmdir
 
             # TODO: start sync of jellyfin media library
             # curl -v -X GET -H "X-MediaBrowser-Token: TOKEN" https://jellyfin.tld/library/refresh
@@ -103,7 +107,7 @@ in
               --compat-options no-live-chat \
               --match-filter "!is_live" \
               --playlist-end 25 \
-              --output "$temp_dir/%(uploader)s/%(upload_date)s - %(uploader)s - %(title)s [%(id)s].%(ext)s"
+              --output "${temp_dir}/%(uploader)s/%(upload_date)s - %(uploader)s - %(title)s [%(id)s].%(ext)s"
           }
 
           main
