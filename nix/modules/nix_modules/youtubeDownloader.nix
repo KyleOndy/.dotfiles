@@ -38,6 +38,7 @@ in
         path = with pkgs; [
           fd
           ripgrep
+          rsync
           yt-dlp
         ];
         script = ''
