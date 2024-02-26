@@ -360,7 +360,7 @@ in
           "@yeahmadtv"
 
           # tech
-          "@@AdamJames-tv"
+          "@AdamJames-tv"
           "@ClojureTV"
           "@KRAZAM"
         ];
