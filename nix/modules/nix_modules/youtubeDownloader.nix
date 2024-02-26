@@ -65,7 +65,7 @@ in
             if [[ -z $(ls -A "$temp_dir"/* 2>/dev/null) ]]; then
               echo "No downloads"
             else
-              rsync -ah --remove-source-files "$temp_dir"/* "${cfg.media_dir}"
+              rsync -ahv --remove-source-files "$temp_dir"/* "${cfg.media_dir}"
             fi
 
             # remove leftovers from incomplete downloads
