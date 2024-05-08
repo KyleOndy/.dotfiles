@@ -427,10 +427,10 @@ in
   };
 
   # static file serving
-  #systemFoundry.nginxReverseProxy."files.home.509ely.com" = {
-  #  enable = true;
-  #  proxyPass = "http://127.0.0.1:8088";
-  #};
+  systemFoundry.nginxReverseProxy."files.home.509ely.com" = {
+    enable = true;
+    proxyPass = "http://127.0.0.1:8088";
+  };
   services.nginx.virtualHosts.static_files = {
     locations."/" = {
       root = "/var/lib/nginx_serve_static";
