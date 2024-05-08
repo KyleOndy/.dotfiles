@@ -280,6 +280,7 @@ in
         blacklist.enable = false;
         upstreamDnsServers = [ "10.25.89.1" ];
         aRecords = {
+          "files.apps.dmz.509ely.com" = "10.25.89.5";
           "gitea.apps.dmz.509ely.com" = "10.25.89.5";
           "jellyfin.apps.dmz.509ely.com" = "10.25.89.5";
           "nzbget.apps.dmz.509ely.com" = "10.25.89.5";
