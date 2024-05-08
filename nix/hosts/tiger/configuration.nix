@@ -427,7 +427,7 @@ in
   };
 
   # static file serving
-  systemFoundry.nginxReverseProxy."files.home.509ely.com" = {
+  systemFoundry.nginxReverseProxy."files.apps.dmz.509ely.com" = {
     enable = true;
     proxyPass = "http://127.0.0.1:8088";
   };
