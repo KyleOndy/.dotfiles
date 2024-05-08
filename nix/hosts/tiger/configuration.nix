@@ -374,6 +374,10 @@ in
           "@KRAZAM"
         ];
       };
+      nginxReverseProxy."files.apps.dmz.509ely.com" = {
+        enable = true;
+        proxyPass = "http://127.0.0.1:8088";
+      };
     };
 
   nixpkgs.config.packageOverrides = pkgs: {
@@ -427,10 +431,6 @@ in
   };
 
   # static file serving
-  systemFoundry.nginxReverseProxy."files.apps.dmz.509ely.com" = {
-    enable = true;
-    proxyPass = "http://127.0.0.1:8088";
-  };
   services.nginx.virtualHosts.static_files = {
     locations."/" = {
       root = "/var/lib/nginx_serve_static";
