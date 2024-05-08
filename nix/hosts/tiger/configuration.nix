@@ -439,11 +439,18 @@ in
         autoindex on;
       '';
     };
-    listen = [{
-      addr = "127.0.0.1";
-      port = 8088;
-      ssl = false;
-    }];
+    listen = [
+      {
+        addr = "127.0.0.1";
+        port = 8088;
+        ssl = false;
+      },
+      {
+        addr = "0.0.0.0";
+        port = 9080;
+        ssl = false;
+      }
+    ];
   };
 
 
