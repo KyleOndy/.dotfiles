@@ -432,25 +432,27 @@ in
   };
 
   # static file serving
-  services.nginx.virtualHosts.static_files = {
-    locations."/" = {
-      root = "/var/lib/nginx_serve_static";
-      extraConfig = ''
-        autoindex on;
-      '';
+  services.nginx.virtualHosts = {
+    static_files = {
+      locations."/" = {
+        root = "/var/lib/nginx_serve_static";
+        extraConfig = ''
+          autoindex on;
+        '';
+      };
+      listen = [
+        {
+          addr = "127.0.0.1";
+          port = 8088;
+          ssl = false;
+        }
+        {
+          addr = "0.0.0.0";
+          port = 9080;
+          ssl = false;
+        }
+      ];
     };
-    listen = [
-      {
-        addr = "127.0.0.1";
-        port = 8088;
-        ssl = false;
-      }
-      {
-        addr = "0.0.0.0";
-        port = 9080;
-        ssl = false;
-      }
-    ];
   };
 
   # public entry points
