@@ -453,6 +453,16 @@ in
     ];
   };
 
+  # public entry points
+  #
+  # apex requests, ex ondy.org or kyleondy.com will default (fall through?) to
+  # serving www.kyleondy.com
+  #
+  # *.apps.home.ondy.org -> home.509ely.com (unifi gateway)
+  #                      -> 80/443 forward to 7080, 7443
+  #                      -> nginx Reverse proxt listens on 7080/7443 and
+  #                         redirects to local address
+
 
   system.stateVersion = "21.11"; # Did you read the comment?
 }
