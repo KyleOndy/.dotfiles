@@ -38,6 +38,16 @@ in
             http://127.0.0.1:8989
           '';
         };
+        listenPort = mkOption {
+          type = types.int;
+          description = "port to listen on";
+          default = 80;
+        };
+        listenAddress = mkOption {
+          type = types.string;
+          description = "port to listen on";
+          default = "127.0.0.1";
+        };
       };
     });
   };
@@ -164,12 +174,18 @@ in
               access_log /var/log/nginx/${name}.access upstreamlog;
               error_log /var/log/nginx/${name}.error error;
             '';
+            listen = [{
+              addr = cfg.listenAddress;
+              port = cfg.listenPort;
+            }];
           })
           sites;
       };
       security.acme = {
         certs = mapAttrs
-          (name: cfg: { extraDomainNames = cfg.extraDomainNames; })
+          (name: cfg: {
+            extraDomainNames = cfg.extraDomainNames;
+          })
           sites;
       };
       users.users.nginx.extraGroups = [ "acme" ];

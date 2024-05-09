@@ -375,9 +375,17 @@ in
           "@KRAZAM"
         ];
       };
-      nginxReverseProxy."files.apps.dmz.509ely.com" = {
-        enable = true;
-        proxyPass = "http://127.0.0.1:8088";
+      nginxReverseProxy = {
+        "files.apps.dmz.509ely.com" = {
+          enable = true;
+          proxyPass = "http://127.0.0.1:8088";
+        };
+        "files.home.509ely.com" = {
+          enable = true;
+          proxyPass = "http://127.0.0.1:8088";
+          listenPort = 7080;
+          listenAddress = "0.0.0.0";
+        };
       };
     };
 
@@ -440,6 +448,20 @@ in
           autoindex on;
         '';
       };
+      listen = [
+        {
+          addr = "127.0.0.1";
+          port = 8088;
+          ssl = false;
+        }
+        {
+          addr = "0.0.0.0";
+          port = 9080;
+          ssl = false;
+        }
+      ];
+    };
+    external_reverse_proxy = {
       listen = [
         {
           addr = "127.0.0.1";
