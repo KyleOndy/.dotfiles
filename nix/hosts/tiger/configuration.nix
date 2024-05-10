@@ -460,10 +460,20 @@ in
   # apex requests, ex ondy.org or kyleondy.com will default (fall through?) to
   # serving www.kyleondy.com
   #
-  # *.apps.home.ondy.org -> home.509ely.com (unifi gateway)
+  # ASSUME: hostname will be forwarded each step so each RP can shuttle traffic
+  #         where it is needed.
+  #
+  # *.apps.ondy.org -> home.509ely.com (unifi gateway)
   #                      -> 80/443 forward to 7080, 7443
   #                      -> nginx Reverse proxt listens on 7080/7443 and
-  #                         redirects to local address
+  #                         redirects to local address (*.apps.dmz.509ely.com)
+  # files.
+  # git.
+  # jellyfin.
+  #
+  # steps:
+  # - setup DNS for ondy.org in TF
+  # - add a CNAME wildcard for *.apps.ondy.org to home.509ely.com
 
 
   system.stateVersion = "21.11"; # Did you read the comment?
