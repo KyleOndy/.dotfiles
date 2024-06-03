@@ -126,9 +126,10 @@ in
     caddy = {
       enable = true;
       email = "kyle@ondy.org";
-      globalConfig = '' 
+      globalConfig = ''
         http_port 9080
-        '';
+        https_port 9443
+      '';
       virtualHosts = {
         # TODO: magic port number
         "jellyfin.apps.ondy.org:9080" = {
