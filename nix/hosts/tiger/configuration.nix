@@ -123,6 +123,22 @@ in
         };
       };
     };
+    caddy = {
+      enable = true;
+      email = "kyle@ondy.org";
+      globalConfig = '' 
+        http_port 9080
+        '';
+      virtualHosts = {
+        # TODO: magic port number
+        "jellyfin.apps.ondy.org:9080" = {
+          #listenAddresses = [ "0.0.0.0:9080" ];
+          extraConfig = ''
+            reverse_proxy http://127.0.0.1:8096
+          '';
+        };
+      };
+    };
   };
   users = {
     # for backup reasons
