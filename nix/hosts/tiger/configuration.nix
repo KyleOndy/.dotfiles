@@ -124,7 +124,7 @@ in
       };
     };
     caddy = {
-      enable = true;
+      enable = false;
       email = "kyle@ondy.org";
       globalConfig = ''
         http_port 9080
