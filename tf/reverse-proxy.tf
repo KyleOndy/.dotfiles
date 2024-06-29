@@ -44,7 +44,7 @@ data "http" "icanhazip" {
 }
 
 locals {
-  my_ip = chomp(data.http.icanhazip.body)
+  my_ip = chomp(data.http.icanhazip.response_body)
 }
 
 resource "aws_security_group" "allow_ssh" {
@@ -93,7 +93,7 @@ module "dynamic_subnets" {
   availability_zones  = [data.aws_availability_zones.available.names[0]]
   vpc_id              = module.vpc.vpc_id
   igw_id              = module.vpc.igw_id
-  ipv4_cidr_block     = "10.0.0.0/16"
+  ipv4_cidr_block     = ["10.0.0.0/16"]
 }
 
 data "aws_availability_zones" "available" {
@@ -101,9 +101,14 @@ data "aws_availability_zones" "available" {
 }
 
 output "ec2_dns" {
-  value = aws_instance.this.public_dns
+  value = aws_instance.reverse_proxy.public_dns
 }
 
 output "keypair" {
   value = module.key.name
+}
+
+module "key" {
+  source      = "git@github.com:KyleOndy/terraform-aws-local-keypair.git?ref=v0.2.0"
+  name_prefix = "reverse_proxy"
 }
