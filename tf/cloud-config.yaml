@@ -85,7 +85,7 @@ apt:
 write_files:
   - content: |
       jellyfin.apps.ondy.org {
-        reverse_proxy https://home.1ella.com:1126
+        reverse_proxy https://jellyfin.apps.home.1ella.com:1126
       }
 
     path: /etc/caddy/Caddyfile

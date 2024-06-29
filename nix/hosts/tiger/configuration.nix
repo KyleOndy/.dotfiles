@@ -132,8 +132,7 @@ in
       '';
       virtualHosts = {
         # TODO: magic port number
-        "jellyfin.apps.ondy.org" = {
-          #listenAddresses = [ "0.0.0.0:9080" ];
+        "jellyfin.apps.home.1ella.com" = {
           extraConfig = ''
             reverse_proxy http://127.0.0.1:8096
           '';
