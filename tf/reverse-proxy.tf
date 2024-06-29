@@ -3,7 +3,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-arm64-server-*"]
   }
 
   filter {
@@ -17,8 +17,8 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "reverse_proxy" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t4g.nano" # the smallest ec2 instnace
-  key_name      = module.key.name
-  subnet_id     = module.dynamic_subnets.public_subnet_ids[0]
+  #key_name      = module.key.name
+  subnet_id = module.dynamic_subnets.public_subnet_ids[0]
   vpc_security_group_ids = [
     aws_security_group.allow_all_egress.id,
     aws_security_group.allow_http_ingress.id,
@@ -115,7 +115,7 @@ module "dynamic_subnets" {
   nat_gateway_enabled = false
   availability_zones  = [data.aws_availability_zones.available.names[0]]
   vpc_id              = module.vpc.vpc_id
-  igw_id              = module.vpc.igw_id
+  igw_id              = [module.vpc.igw_id]
   ipv4_cidr_block     = ["10.0.0.0/16"]
 }
 

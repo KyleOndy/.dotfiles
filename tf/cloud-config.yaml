@@ -1,0 +1,13 @@
+#cloud-config
+users:
+  - name: kyle
+    shell: /bin/bash
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    ssh_import_id:
+      - gh:kyleondy
+disable_root: true
+packages:
+  - nginx
+runcmd:
+  - "export PUBLIC_IPV4=$(curl -s http://169.254.169.254/metadata/v1/interfaces/public/0/ipv4/address)"
+  - "echo instance: $(hostname), IP Address: $PUBLIC_IPV4 > /var/www/html/index.html"
