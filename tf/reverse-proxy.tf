@@ -39,6 +39,14 @@ resource "aws_instance" "reverse_proxy" {
   }
 }
 
+data "http" "icanhazip" {
+  url = "http://icanhazip.com"
+}
+
+locals {
+  my_ip = chomp(data.http.icanhazip.body)
+}
+
 resource "aws_security_group" "allow_ssh" {
   name        = "allow_ssh"
   description = "Allow SSH inbound connections"
@@ -49,7 +57,7 @@ resource "aws_security_group" "allow_ssh" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${module.myip.address}/32"]
+    cidr_blocks = ["${local.my_ip}/32"]
   }
 }
 
@@ -85,7 +93,7 @@ module "dynamic_subnets" {
   availability_zones  = [data.aws_availability_zones.available.names[0]]
   vpc_id              = module.vpc.vpc_id
   igw_id              = module.vpc.igw_id
-  cidr_block          = "10.0.0.0/16"
+  ipv4_cidr_block     = "10.0.0.0/16"
 }
 
 data "aws_availability_zones" "available" {
