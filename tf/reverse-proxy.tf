@@ -33,6 +33,9 @@ resource "aws_instance" "reverse_proxy" {
     encrypted = true
   }
 
+  user_data                   = file("${path.module}/cloud-config.yaml")
+  user_data_replace_on_change = true
+
   tags = {
     Name        = "apps reverse proxy"
     Description = "app.ondy.org reverse proxy"
