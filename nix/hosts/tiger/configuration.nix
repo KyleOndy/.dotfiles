@@ -430,6 +430,8 @@ in
         startAt = "*-*-* 04:00:00"; # 4am
         path = with pkgs; [
           bashInteractive
+          curl
+          jq
         ];
         environment = {
           TOKEN_FILE = config.sops.secrets.jellyfin_api_token.path;
