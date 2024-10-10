@@ -464,7 +464,7 @@ in
             vids=$(print_watched_vids)
 
             [[ -d "$WORKING_DIR" ]] || mkdir "$WORKING_DIR"
-            echo "$vt apids" | sort > "$WORKING_DIR/$TODAY.txt"
+            echo "$vids" | sort > "$WORKING_DIR/$TODAY.txt"
 
             old_vids_file=$(fd --type=f . "$WORKING_DIR" | sort -r | sed -n "/$TWO_DAYS_AGO/,//p" | head -n1)
             if ! [[ -f "$old_vids_file" ]]; then
