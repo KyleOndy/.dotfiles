@@ -431,6 +431,7 @@ in
         path = with pkgs; [
           bashInteractive
           curl
+          fd
           jq
         ];
         environment = {
