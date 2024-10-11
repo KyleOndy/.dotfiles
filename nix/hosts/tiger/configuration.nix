@@ -473,7 +473,7 @@ in
               exit 0
             fi
 
-            vids_to_remove = $(comm -12 "$WORKING_DIR/$TODAY.txt" "$old_vids_file")
+            vids_to_remove=$(comm -12 "$WORKING_DIR/$TODAY.txt" "$old_vids_file")
 
             [[ -z "$vids_to_remove" ]] && exit 0
 
