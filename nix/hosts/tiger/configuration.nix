@@ -477,7 +477,7 @@ in
 
             [[ -z "$vids_to_remove" ]] && exit 0
 
-            echo "$vids_to_remove" | while read - r vid; do
+            echo "$vids_to_remove" | while read -r vid; do
               if [[ -f "$vid" ]]; then
                 sudo rm -v "$vid"
               else
@@ -485,7 +485,7 @@ in
               fi
             done
 
-            fd --type = directory - -type=empty . /mnt/media/yt -X rmdir
+            fd --type=directory --type=empty . /mnt/media/yt -X rmdir
             update_lib
           }
 
