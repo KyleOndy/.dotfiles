@@ -479,7 +479,7 @@ in
 
             echo "$vids_to_remove" | while read -r vid; do
               if [[ -f "$vid" ]]; then
-                sudo rm -v "$vid"
+                rm -v "$vid"
               else
                 echo "Can not find $vid"
               fi
