@@ -148,6 +148,7 @@
 
                   hmFoundry = {
                     desktop = {
+                      apps.warpd.enable = true;
                       browsers.qutebrowser.enable = true;
                       media.latex.enable = true;
                       term.wezterm.enable = true;
