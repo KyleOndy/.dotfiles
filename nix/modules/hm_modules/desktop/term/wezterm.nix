@@ -16,7 +16,7 @@ in
     programs.wezterm = {
       enable = true;
       extraConfig = ''
-        front_end=‘WebGpu’
+        front_end="WebGpu"
       '';
     };
   };
