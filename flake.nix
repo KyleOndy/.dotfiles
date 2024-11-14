@@ -35,7 +35,7 @@
         inputs.nur.overlay
         (import ./nix/pkgs)
         (import ./nix/overlays/st)
-        (import ./nix/overlays/warpd)
+        #(import ./nix/overlays/warpd)
         # TODO: this was hacked, need to find a better way
         (import ./nix/pkgs/nvim-treesitter-sexp)
       ];

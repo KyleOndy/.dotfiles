@@ -109,7 +109,7 @@ in
       visidata # vd tool for viewing structured data
       vlc # watch things
       w3m # browse the web from the cli, like it was meant to be
-      warpd # warpd without X
+      #warpd # warpd without X
       watch
       wget # get a file from the internet
       xclip # copy something to the clipboard
