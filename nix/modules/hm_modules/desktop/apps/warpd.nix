@@ -8,10 +8,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    #home.packages = with pkgs; [
-    #  warpd
-    #];
-
     systemd.user.services.warpd = {
       Unit = {
         descrption = "warpd";
@@ -21,9 +17,6 @@ in
         After = [ "graphical-session.target" ];
         PartOf = [ "graphical-session.target" ];
       };
-      #path = with pkgs; [
-      #  warpd
-      #];
       Service = {
         ExecStart = "${pkgs.warpd}/bin/warped -f";
       };
