@@ -15,8 +15,6 @@ in
   config = mkIf cfg.enable {
     programs.wezterm = {
       enable = true;
-      extraConfig = ''
-        '';
     };
   };
 }
