@@ -16,7 +16,13 @@ in
     programs.wezterm = {
       enable = true;
       extraConfig = ''
-        front_end="WebGpu"
+        local wezterm = require 'wezterm'
+        local config = wezterm.config_builder()
+        config.audible_bell = "Disabled"
+        config.hide_tab_bar_if_only_one_tab = true
+        config.front_end="WebGpu"
+
+        return config
       '';
     };
   };
