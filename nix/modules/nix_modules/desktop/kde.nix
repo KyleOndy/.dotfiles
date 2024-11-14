@@ -11,7 +11,7 @@ in
     services = {
       displayManager = {
         sddm.enable = true;
-        defaultSession = "plasmawayland";
+        defaultSession = "plasma"; # x11
       };
       xserver = {
         desktopManager.plasma5 = {
