@@ -1,6 +1,6 @@
 self: super: {
   warpd = super.warpd.override {
-    withWayland = true;
-    withX = false;
+    withWayland = false;
+    withX = true;
   };
 }
