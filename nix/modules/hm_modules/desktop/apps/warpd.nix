@@ -20,7 +20,9 @@ in
       path = with pkgs; [
         warpd
       ];
-      script = "warpd -f";
+      serviceConfig = {
+        ExecStart = "${pkgs.warpd}/bin/warped -f";
+      };
     };
   };
 }
