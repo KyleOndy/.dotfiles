@@ -8,19 +8,23 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      warpd
-    ];
+    #home.packages = with pkgs; [
+    #  warpd
+    #];
 
     systemd.user.services.warpd = {
-      enable = true;
-      wantedBy = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      partOf = [ "graphical-session.target" ];
-      path = with pkgs; [
-        warpd
-      ];
-      serviceConfig = {
+      Unit = {
+        descrption = "warpd";
+      };
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+        After = [ "graphical-session.target" ];
+        PartOf = [ "graphical-session.target" ];
+      };
+      #path = with pkgs; [
+      #  warpd
+      #];
+      Service = {
         ExecStart = "${pkgs.warpd}/bin/warped -f";
       };
     };
