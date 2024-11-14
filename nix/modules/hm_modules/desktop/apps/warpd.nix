@@ -18,7 +18,7 @@ in
         PartOf = [ "graphical-session.target" ];
       };
       Service = {
-        ExecStart = "${pkgs.warpd}/bin/warped -f";
+        ExecStart = "${pkgs.warpd}/bin/warpd -f";
       };
     };
   };
